@@ -1,0 +1,32 @@
+---
+import Layout from '@/src/layouts/Layout.astro';
+import { ArrowLeft, ShieldAlert } from 'lucide-react';
+---
+
+<Layout
+  title="Página Não Encontrada | JRX Seguros"
+  description="A página que você está procurando não existe ou foi movida."
+>
+  <div class="min-h-[60vh] flex items-center justify-center px-4 py-20 bg-[#FAFAFA]">
+    <div class="max-w-md w-full text-center space-y-6">
+      <div class="w-16 h-16 rounded-2xl bg-blue-900/10 text-blue-900 flex items-center justify-center mx-auto">
+        <ShieldAlert className="w-8 h-8" />
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#0A192F] tracking-tight">
+        Página não encontrada
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        O seguro ou endereço informado não foi encontrado. Retorne para a página inicial ou explore as nossas opções de cobertura.
+      </p>
+      <div>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0A192F] text-white font-semibold text-sm hover:bg-[#0A192F]/90 transition-colors shadow-md"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Voltar ao Início</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

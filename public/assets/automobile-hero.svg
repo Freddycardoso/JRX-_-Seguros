@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1000 600" preserveAspectRatio="xMaxYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="roofRim" x1="100" y1="180" x2="800" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0" />
+      <stop offset="35%" stop-color="#93C5FD" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#E2E8F0" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="headlightGlow" x1="180" y1="360" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#67E8F9" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#38BDF8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="bodyReflection" x1="400" y1="300" x2="900" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#334155" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#0F172A" />
+      <stop offset="85%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </radialGradient>
+  </defs>
+
+  <polygon
+    points="210,380 40,430 0,550 240,410"
+    fill="url(#headlightGlow)"
+    opacity="0.35"
+  />
+
+  <path
+    d="M 120 420 C 140 400, 180 380, 240 375 C 300 370, 360 365, 410 320 C 470 260, 560 215, 680 220 C 770 225, 830 255, 890 320 C 930 360, 960 385, 990 405 L 990 480 L 860 480 C 860 410, 750 410, 750 480 L 420 480 C 420 410, 310 410, 310 480 L 160 480 C 130 465, 115 445, 120 420 Z"
+    fill="url(#bodyReflection)"
+    stroke="#475569"
+    stroke-width="1.5"
+  />
+
+  <path
+    d="M 410 320 C 470 260, 560 215, 680 220 C 770 225, 830 255, 890 320 C 800 315, 660 310, 530 315 Z"
+    fill="#0B132B"
+    stroke="url(#roofRim)"
+    stroke-width="3"
+  />
+
+  <path d="M 640 225 L 650 312" stroke="#1E293B" stroke-width="6" />
+
+  <path
+    d="M 220 375 C 320 368, 410 320, 500 270 C 580 225, 680 218, 770 226 C 840 235, 900 280, 970 370"
+    stroke="url(#roofRim)"
+    stroke-width="2.5"
+    fill="none"
+  />
+
+  <path
+    d="M 235 382 C 340 380, 480 370, 620 365 C 750 360, 850 355, 960 380"
+    stroke="#94A3B8"
+    stroke-width="1.2"
+    stroke-opacity="0.7"
+    fill="none"
+  />
+
+  <path
+    d="M 315 470 L 745 470"
+    stroke="#64748B"
+    stroke-width="2"
+    stroke-opacity="0.5"
+  />
+
+  <path
+    d="M 205 380 C 215 378, 245 382, 260 385 L 248 395 C 225 392, 210 390, 195 388 Z"
+    fill="#38BDF8"
+  />
+  <path
+    d="M 200 382 L 255 386"
+    stroke="#FFFFFF"
+    stroke-width="2"
+  />
+
+  <g transform="translate(805, 480)">
+    <circle cx="0" cy="0" r="65" fill="#0A0F1D" stroke="#334155" stroke-width="4" />
+    <circle cx="0" cy="0" r="50" fill="url(#wheelRim)" />
+    <line x1="-35" y1="0" x2="35" y2="0" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="0" y1="-35" x2="0" y2="35" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="-25" y1="-25" x2="25" y2="25" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="-25" y1="25" x2="25" y2="-25" stroke="#94A3B8" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="14" fill="#0F172A" stroke="#CBD5E1" stroke-width="1.5" />
+  </g>
+
+  <g transform="translate(365, 480)">
+    <circle cx="0" cy="0" r="65" fill="#0A0F1D" stroke="#334155" stroke-width="4" />
+    <circle cx="0" cy="0" r="50" fill="url(#wheelRim)" />
+    <line x1="-35" y1="0" x2="35" y2="0" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="0" y1="-35" x2="0" y2="35" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="-25" y1="-25" x2="25" y2="25" stroke="#94A3B8" stroke-width="2.5" />
+    <line x1="-25" y1="25" x2="25" y2="-25" stroke="#94A3B8" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="14" fill="#0F172A" stroke="#CBD5E1" stroke-width="1.5" />
+  </g>
+
+  <line x1="80" y1="545" x2="990" y2="545" stroke="#1E293B" stroke-width="3" />
+  <ellipse cx="585" cy="548" rx="420" ry="12" fill="#0284C7" opacity="0.08" />
+</svg>

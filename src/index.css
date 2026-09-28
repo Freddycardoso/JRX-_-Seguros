@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-public-sans: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-lora: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  html {
+    font-family: var(--font-public-sans);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior: none;
+    background-color: #061224; /* JRX Deep Navy base */
+    color: #F8FAFC;
+  }
+  
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  button, a, [role="button"] {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  html ::selection {
+    background-color: #0284C7;
+    color: #FFFFFF;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-lora);
+  }
+
+  /* Universal Premium Transition (Emil Kowalski) */
+  *, *::before, *::after {
+    transition-timing-function: var(--ease-out);
+  }
+}
+
+@layer utilities {
+  /* Subtle CSS Noise / Film Grain */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* Camadas e Tons de Azul JRX (Base, Camada 1, Camada 2, Camada 3) */
+  .jrx-bg-base {
+    background-color: #061224;
+  }
+
+  .jrx-bg-layer-1 {
+    background: linear-gradient(180deg, #091B36 0%, #061224 100%);
+  }
+
+  .jrx-bg-layer-2 {
+    background: linear-gradient(180deg, #0E264D 0%, #091C3B 100%);
+  }
+
+  .jrx-bg-layer-3 {
+    background: linear-gradient(180deg, #13346B 0%, #0E2852 100%);
+  }
+
+  /* Efeito de Profundidade com Múltiplas Sombras e Borda Refletiva */
+  .jrx-depth-card {
+    background: linear-gradient(180deg, rgba(14, 38, 77, 0.85) 0%, rgba(9, 27, 54, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.16);
+    box-shadow: 
+      0 20px 45px -12px rgba(2, 6, 23, 0.75),
+      0 0 24px rgba(2, 132, 199, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  }
+
+  .jrx-depth-card-hover {
+    transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms var(--ease-out);
+  }
+
+  .jrx-depth-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 
+      0 28px 55px -15px rgba(2, 6, 23, 0.85),
+      0 0 35px rgba(56, 189, 248, 0.18),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .jrx-depth-card-hover:active {
+    transform: scale(0.98);
+  }
+
+  /* Double-Bezel High-End Architecture (Vanguard / Agency Grade) */
+  .bezel-outer-highend {
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.16) 0%, rgba(12, 36, 74, 0.45) 45%, rgba(6, 18, 36, 0.8) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    box-shadow: 
+      0 20px 50px -10px rgba(2, 6, 23, 0.85),
+      0 0 24px rgba(2, 132, 199, 0.10),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12);
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 500ms cubic-bezier(0.32, 0.72, 0, 1), border-color 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .bezel-outer-highend:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 
+      0 30px 65px -12px rgba(2, 6, 23, 0.95),
+      0 0 35px rgba(56, 189, 248, 0.22),
+      inset 0 1px 1px rgba(255, 255, 255, 0.22);
+  }
+
+  .bezel-outer-highend:active {
+    transform: scale(0.985);
+  }
+
+  .bezel-inner-highend {
+    background: linear-gradient(180deg, #0C274F 0%, #091D3E 50%, #06152B 100%);
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.16),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Micro-interação de clique responsiva (Emil Kowalski) */
+  .btn-press {
+    transition: transform 160ms var(--ease-out);
+  }
+  .btn-press:active {
+    transform: scale(0.97);
+  }
+}

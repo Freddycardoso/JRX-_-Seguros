@@ -1,0 +1,8 @@
+{
+  "name": "JRX Seguros",
+  "description": "Corretora de seguros B2B e B2C. Cotações ágeis e atendimento consultivo direto no WhatsApp para proteger seu patrimônio, família e empresa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

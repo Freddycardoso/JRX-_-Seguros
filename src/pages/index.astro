@@ -1,0 +1,709 @@
+---
+import Layout from '@/src/layouts/Layout.astro';
+import {
+  HeartHandshake,
+  Headphones,
+  Building2,
+  Shield,
+  ChevronRight,
+  MessageSquare,
+  Search,
+  FileCheck,
+  LifeBuoy,
+  PhoneCall,
+  Clock,
+  Sparkles,
+} from 'lucide-react';
+import { type FaqItem } from '@/src/data/seguros';
+import { SITE_CONFIG } from '@/src/config/site';
+import { FAQAccordion } from '@/src/components/FAQAccordion';
+import { SegurosCarousel } from '@/src/components/SegurosCarousel';
+import { MotionReveal } from '@/src/components/MotionReveal';
+import { WhatsAppCTA } from '@/src/components/WhatsAppCTA';
+
+const PARTNER_INSURERS = [
+  'Porto Seguro',
+  'Azul Seguros',
+  'Tokio Marine',
+  'Allianz',
+  'Bradesco Seguros',
+  'SulAmérica',
+  'HDI Seguros',
+  'Mapfre',
+  'Sompo Seguros',
+  'Zurich',
+];
+
+const HOME_FAQS: FaqItem[] = [
+  {
+    question: 'Como funciona a cotação pelo WhatsApp da JRX Seguros?',
+    answer:
+      'É muito simples e direto: ao clicar no botão de WhatsApp, você conversa em tempo real com nossos consultores especialistas (Paulo Martins ou André). Basta informar o que deseja proteger (seu carro, sua vida, sua residência ou empresa) e apresentamos um comparativo das melhores seguradoras do Brasil com as melhores condições.',
+  },
+  {
+    question: 'Como recebo o comparativo das seguradoras?',
+    answer:
+      'Enviamos o comparativo completo de preços e coberturas diretamente na conversa do WhatsApp para você avaliar com calma e tirar todas as suas dúvidas com nossos consultores.',
+  },
+  {
+    question: 'A JRX Seguros atende apenas em Passos - MG ou em todo o Brasil?',
+    answer:
+      'Nossa sede física fica em Passos - MG, mas emitimos e prestamos consultoria em apólices para clientes, famílias e empresas em qualquer estado do território nacional, com suporte 100% digital e ágil.',
+  },
+  {
+    question: 'O que devo fazer caso ocorra um imprevisto ou sinistro?',
+    answer:
+      'Você nunca fica sozinho falando com robôs: mande uma mensagem imediata no WhatsApp da JRX Seguros. Nossa equipe orienta os passos necessários, aciona a assistência e acompanha a liberação da indenização até a conclusão do processo.',
+  },
+  {
+    question: 'Existe algum custo para fazer a cotação e comparação?',
+    answer:
+      'Nenhum! Nossa consultoria, análise de apólices anteriores e estudo comparativo multisseguradoras são 100% gratuitos e sem qualquer compromisso de contratação.',
+  },
+];
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'InsuranceAgency',
+  name: SITE_CONFIG.name,
+  description: 'Corretora de seguros em Passos - MG com atendimento para todo o Brasil.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua dos Brandões, 231, Sala 30',
+    addressLocality: 'Passos',
+    addressRegion: 'MG',
+    postalCode: '37900-118',
+    addressCountry: 'BR',
+  },
+  telephone: '+55-35-99154-5108',
+  email: SITE_CONFIG.email,
+  priceRange: '$$',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '19:00',
+    },
+  ],
+};
+---
+
+<Layout
+  title="JRX Seguros | Proteção e Tranquilidade para Você e sua Empresa"
+  description="Consultoria especializada em seguros em Passos - MG com atendimento para todo o Brasil. Cotação rápida no WhatsApp para Seguro de Vida, Auto, Residencial, Empresarial e Solar."
+  canonical="/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
+    <!-- Preload do recurso LCP Crítico da Página Inicial -->
+    <link rel="preload" as="image" href="/hero-casa-luxo.webp" type="image/webp" fetchpriority="high" />
+  </Fragment>
+
+  <div class="flex flex-col w-full bg-[#061224] text-slate-100 relative overflow-hidden">
+    {/* Fundo com Textura Sutil de Ruído e Brilhos Radiais de Profundidade */}
+    <div class="fixed inset-0 bg-noise z-40 pointer-events-none opacity-20"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] bg-[radial-gradient(ellipse_at_top,rgba(2,132,199,0.22),transparent_70%)] pointer-events-none -z-10"></div>
+    <div class="absolute top-[850px] right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(30,58,138,0.18),transparent_70%)] pointer-events-none -z-10"></div>
+    <div class="absolute top-[1700px] left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,116,144,0.15),transparent_70%)] pointer-events-none -z-10"></div>
+
+    <!-- ========================================================================= -->
+    <!-- 1. HERO SECTION: Grandioso, com Espaço, Respiro e Destaque aos Consultores -->
+    <!-- ========================================================================= -->
+    <section class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-32 min-h-[660px] lg:min-h-[740px] flex items-center">
+      {/* Fundo Arquitetônico com Máscara Escura (Recurso LCP Otimizado) */}
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-[0.10]">
+        <img
+          src="/hero-casa-luxo.webp"
+          alt="Residência de alto padrão protegida pela consultoria JRX Seguros"
+          class="w-full h-full object-cover object-center grayscale"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          width="1920"
+          height="1080"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#061224] via-[#061224]/85 to-[#061224]"></div>
+      </div>
+
+      {/* Corretor Paulo Martins (Posicionado com generoso respiro no topo) */}
+      <div class="hidden lg:block absolute bottom-0 left-[2%] xl:left-[6%] w-[310px] xl:w-[360px] z-10 select-none pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]">
+        <div class="relative">
+          <img
+            src="/corretor-paulo-nobg.webp"
+            alt="Paulo Martins - Consultor Especialista da JRX Seguros"
+            width="360"
+            height="530"
+            class="w-full h-auto object-contain object-bottom opacity-90"
+            loading="eager"
+            decoding="async"
+            style="max-height: 530px; mask-image: linear-gradient(to top, transparent 0%, black 22%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%);"
+          />
+          {/* Badge de Identificação */}
+          <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-[#091D3E]/90 backdrop-blur-md border border-sky-400/30 px-3.5 py-1.5 rounded-full text-center shadow-lg whitespace-nowrap">
+            <span class="text-xs font-bold text-white block">Paulo Martins</span>
+            <span class="text-[10px] text-sky-300 font-medium">Consultor Especialista</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Corretor André (Posicionado com generoso respiro no topo) */}
+      <div class="hidden lg:block absolute bottom-0 right-[2%] xl:right-[6%] w-[300px] xl:w-[350px] z-10 select-none pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]">
+        <div class="relative">
+          <img
+            src="/corretor-andre-nobg.webp"
+            alt="André - Consultor Especialista da JRX Seguros"
+            width="350"
+            height="530"
+            class="w-full h-auto object-contain object-bottom transform -scale-x-100 opacity-90"
+            loading="eager"
+            decoding="async"
+            style="max-height: 530px; mask-image: linear-gradient(to top, transparent 0%, black 22%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%);"
+          />
+          {/* Badge de Identificação */}
+          <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-[#091D3E]/90 backdrop-blur-md border border-sky-400/30 px-3.5 py-1.5 rounded-full text-center shadow-lg whitespace-nowrap">
+            <span class="text-xs font-bold text-white block">André</span>
+            <span class="text-[10px] text-sky-300 font-medium">Consultor Especialista</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20">
+        <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+          
+          <MotionReveal client:visible delay={0.05}>
+            <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#091D3E]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(56,189,248,0.18)] mb-6">
+              <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-xs font-bold uppercase tracking-[0.16em] text-sky-300">
+                Atendimento Especializado · Passos - MG &amp; Todo o Brasil
+              </span>
+            </div>
+          </MotionReveal>
+
+          <MotionReveal client:visible delay={0.1}>
+            <h1 class="text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight text-white leading-[1.06] mb-6 text-balance">
+              A estrutura da sua <span class="text-sky-400 italic font-serif">segurança</span>.
+            </h1>
+          </MotionReveal>
+
+          <MotionReveal client:visible delay={0.15}>
+            <p class="text-base sm:text-xl text-slate-200/90 leading-relaxed max-w-2xl mx-auto font-normal mb-10">
+              Consultoria humana, ágil e focada na sua proteção real com Paulo Martins e André. Cuidamos do que mais importa para a sua família e seus negócios com as melhores seguradoras do país.
+            </p>
+          </MotionReveal>
+
+          <MotionReveal client:visible delay={0.2}>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <WhatsAppCTA
+                productName="Geral"
+                label="Falar com Paulo ou André"
+                size="lg"
+                variant="whatsapp"
+                fullWidthMobile={true}
+                className="btn-press shadow-[0_16px_36px_rgba(16,185,129,0.38)] !px-9 !py-4 text-base font-bold"
+              />
+            </div>
+
+            {/* Apresentação Humana Compacta no Mobile */}
+            <div class="lg:hidden flex items-center justify-center gap-3.5 mt-8 pt-6 border-t border-sky-400/15">
+              <div class="flex items-center -space-x-3">
+                <img
+                  src="/corretor-paulo-nobg.webp"
+                  alt="Paulo Martins"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-11 h-11 rounded-full object-cover object-top border-2 border-sky-400/40 bg-[#091D3E]"
+                />
+                <img
+                  src="/corretor-andre-nobg.webp"
+                  alt="André"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-11 h-11 rounded-full object-cover object-top border-2 border-sky-400/40 bg-[#091D3E]"
+                />
+              </div>
+              <div class="text-left">
+                <div class="text-xs font-bold text-white">Paulo Martins &amp; André</div>
+                <div class="text-[11px] text-sky-300">Consultores dedicados no WhatsApp</div>
+              </div>
+            </div>
+          </MotionReveal>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2. LOGOS DE SEGURADORAS PARCEIRAS (Trust Signals Oficiais)                -->
+    <!-- ========================================================================= -->
+    <MotionReveal client:visible>
+      <section class="py-8 sm:py-10 border-y border-sky-400/10 bg-[#07172E]/60 my-4" aria-label="Seguradoras parceiras">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400/70 mb-6">
+            Trabalhamos com as Principais e Mais Sólidas Seguradoras do País
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-slate-300/80">
+            {PARTNER_INSURERS.map((insurer) => (
+              <div
+                class="text-xs sm:text-sm font-bold tracking-tight hover:text-white hover:scale-105 transition-all duration-300 py-1 cursor-default"
+              >
+                {insurer}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </MotionReveal>
+
+    <!-- ========================================================================= -->
+    <!-- 3. SEÇÃO NOSSOS SEGUROS (Carrossel dos 11 Ramos)                          -->
+    <!-- ========================================================================= -->
+    <section id="nossos-seguros" class="py-16 sm:py-24 bg-transparent scroll-mt-14 overflow-hidden relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MotionReveal client:visible delay={0.05}>
+          <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-sky-300 bg-sky-950/70 border border-sky-400/30 shadow-[0_0_15px_rgba(56,189,248,0.15)] mb-4">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+              CATÁLOGO ESPECIALIZADO DE PROTEÇÃO
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              Proteção sob medida para <span class="italic font-serif text-sky-400">cada momento</span>.
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300/85 leading-relaxed max-w-xl mx-auto font-normal">
+              Coberturas inteligentes desenhadas para a sua realidade pessoal, patrimonial ou corporativa com as principais seguradoras do país.
+            </p>
+          </div>
+        </MotionReveal>
+      </div>
+
+      <MotionReveal client:visible delay={0.1}>
+        <SegurosCarousel client:visible />
+      </MotionReveal>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. JORNADA DE CONSULTORIA: SPLIT-SCREEN EXECUTIVO (Private Advisory)      -->
+    <!-- ========================================================================= -->
+    <section id="como-funciona" class="py-20 sm:py-28 scroll-mt-24 lg:scroll-mt-32 bg-[#070B14] border-t border-b border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Coluna Esquerda: Âncora de Autoridade (lg:col-span-5) -->
+          <MotionReveal client:visible delay={0.05} className="lg:col-span-5 lg:self-center">
+            <div>
+              <span class="inline-block text-xs font-medium uppercase tracking-wider text-slate-300 bg-white/5 border border-white/10 px-3.5 py-1 rounded-full mb-4">
+                METODOLOGIA CONSULTIVA
+              </span>
+              <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mt-2 mb-6">
+                Da análise estratégica à gestão da apólice.
+              </h2>
+              <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-8">
+                Um processo consultivo desenhado para eliminar atritos, proteger o seu patrimônio e garantir que você pague estritamente pelo que faz sentido para a sua realidade.
+              </p>
+
+              {/* Diferencial de Agilidade (Badge Sóbrio) */}
+              <div class="space-y-3 pt-6 border-t border-slate-800/80">
+                <div class="flex items-center gap-2.5 text-xs font-medium text-slate-400">
+                  <span class="text-sky-400 text-xs">●</span>
+                  <span>Atendimento direto com os consultores titulares</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs font-medium text-slate-400">
+                  <span class="text-sky-400 text-xs">●</span>
+                  <span>Resposta ágil com foco no Sudoeste Mineiro e região</span>
+                </div>
+              </div>
+            </div>
+          </MotionReveal>
+
+          <!-- Coluna Direita: Lista Minimalista de Fases (lg:col-span-7) -->
+          <MotionReveal client:visible delay={0.1} className="lg:col-span-7">
+            <div class="divide-y divide-slate-800/80 border-t border-b border-slate-800/80">
+              
+              {/* Fase 01 */}
+              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
+                  01
+                </span>
+                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
+                  Mapeamento de Riscos e Necessidades
+                </h3>
+                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Entendemos a fundo a sua rotina, operação rural, frota ou patrimônio familiar via WhatsApp para identificar exposições reais e cortar coberturas inúteis.
+                </p>
+              </div>
+
+              {/* Fase 02 */}
+              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
+                  02
+                </span>
+                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
+                  Curadoria Multimercado Imparcial
+                </h3>
+                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Comparamos condições, limites de indenização e franquias nas principais companhias do país, recomendando a alternativa de melhor custo-benefício para o seu perfil.
+                </p>
+              </div>
+
+              {/* Fase 03 */}
+              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
+                  03
+                </span>
+                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
+                  Ativação e Gestão Contínua
+                </h3>
+                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                  Formalização ágil sem deslocamentos físicos e suporte direto dos consultores Paulo Martins e André em qualquer eventualidade ou sinistro ao longo de todo o contrato.
+                </p>
+              </div>
+
+            </div>
+          </MotionReveal>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. SEÇÃO SINISTRO E EMERGÊNCIA ("O que acontece na hora do imprevisto?")    -->
+    <!-- ========================================================================= -->
+    <section id="sinistro" class="py-20 sm:py-28 scroll-mt-24 lg:scroll-mt-32 relative bg-[#061224] border-t border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Cabeçalho Centralizado */}
+        <MotionReveal client:visible delay={0.05}>
+          <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+            <span class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-slate-300 bg-white/5 border border-white/10 px-3.5 py-1 rounded-full mb-4">
+              <LifeBuoy className="w-3.5 h-3.5 text-sky-400" />
+              <span>GESTÃO DEDICADA DE SINISTROS</span>
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+              E na hora do imprevisto, <span class="italic font-serif text-sky-400">o que acontece?</span>
+            </h2>
+            <p class="text-sm sm:text-base text-slate-300/85 leading-relaxed max-w-2xl mx-auto font-normal">
+              Você nunca fica sozinho esperando em filas eletrônicas de 0800. Quando ocorre uma colisão, pane na rodovia ou sinistro no seu imóvel, você fala diretamente no WhatsApp com Paulo Martins ou André e nós cuidamos de cada etapa.
+            </p>
+          </div>
+        </MotionReveal>
+
+        {/* Grade de Cards com Acabamento Metalizado e Feixe de Luz Suave */}
+        <MotionReveal client:visible delay={0.1}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            
+            {/* Card 01 - Acionamento 24h Imediato */}
+            <div class="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-1">
+              {/* Borda com reflexo metálico angular */}
+              <div 
+                class="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-700 opacity-70 group-hover:opacity-100"
+                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(148,163,184,0.18) 28%, rgba(56,189,248,0.35) 48%, rgba(255,255,255,0.6) 52%, rgba(148,163,184,0.12) 72%, rgba(255,255,255,0.25) 100%);"
+              />
+
+              {/* Corpo Metálico */}
+              <div 
+                class="relative h-full rounded-[calc(1rem-1px)] p-7 sm:p-8 flex flex-col justify-between overflow-hidden shadow-[0_24px_50px_rgba(0,0,0,0.9)]"
+                style="background: linear-gradient(150deg, #131E31 0%, #0C1625 35%, #08101C 72%, #050A14 100%); box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.28), inset 0 0 20px 0 rgba(255, 255, 255, 0.02), 0 20px 45px -10px rgba(0, 0, 0, 0.9);"
+              >
+                {/* Feixe Suave de Luz Diagonal (Soft Specular Beam) */}
+                <div 
+                  class="absolute inset-0 pointer-events-none rounded-[calc(1rem-1px)] opacity-60 group-hover:opacity-90 transition-opacity duration-700"
+                  style="background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.03) 38%, rgba(255,255,255,0.12) 47%, rgba(186,230,253,0.2) 50%, rgba(255,255,255,0.06) 53%, transparent 70%);"
+                />
+
+                {/* Hairline de topo refletindo luz */}
+                <div class="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
+
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-sm text-slate-400 font-medium tracking-normal block">
+                      01
+                    </span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent border border-white/20 flex items-center justify-center text-sky-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_4px_12px_rgba(0,0,0,0.5)] group-hover:scale-105 group-hover:text-white transition-all duration-300">
+                      <PhoneCall className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-2.5">
+                    Acionamento 24h Imediato
+                  </h3>
+                  <p class="text-sm text-slate-300/85 leading-relaxed font-normal">
+                    Orientamos os primeiros passos no local da ocorrência, liberação de guincho, socorro mecânico, chaveiro ou transporte emergencial sem filas de espera.
+                  </p>
+                </div>
+
+                <div class="pt-6 mt-8 border-t border-slate-800/80 relative z-10">
+                  <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                    <span class="text-sky-400 text-xs">●</span>
+                    <span>Interlocução direta sem robôs</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 02 - Sem Burocracia para Você */}
+            <div class="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-1">
+              {/* Borda com reflexo metálico angular */}
+              <div 
+                class="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-700 opacity-70 group-hover:opacity-100"
+                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(148,163,184,0.18) 28%, rgba(56,189,248,0.35) 48%, rgba(255,255,255,0.6) 52%, rgba(148,163,184,0.12) 72%, rgba(255,255,255,0.25) 100%);"
+              />
+
+              {/* Corpo Metálico */}
+              <div 
+                class="relative h-full rounded-[calc(1rem-1px)] p-7 sm:p-8 flex flex-col justify-between overflow-hidden shadow-[0_24px_50px_rgba(0,0,0,0.9)]"
+                style="background: linear-gradient(150deg, #131E31 0%, #0C1625 35%, #08101C 72%, #050A14 100%); box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.28), inset 0 0 20px 0 rgba(255, 255, 255, 0.02), 0 20px 45px -10px rgba(0, 0, 0, 0.9);"
+              >
+                {/* Feixe Suave de Luz Diagonal (Soft Specular Beam) */}
+                <div 
+                  class="absolute inset-0 pointer-events-none rounded-[calc(1rem-1px)] opacity-60 group-hover:opacity-90 transition-opacity duration-700"
+                  style="background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.03) 38%, rgba(255,255,255,0.12) 47%, rgba(186,230,253,0.2) 50%, rgba(255,255,255,0.06) 53%, transparent 70%);"
+                />
+
+                {/* Hairline de topo refletindo luz */}
+                <div class="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
+
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-sm text-slate-400 font-medium tracking-normal block">
+                      02
+                    </span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent border border-white/20 flex items-center justify-center text-sky-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_4px_12px_rgba(0,0,0,0.5)] group-hover:scale-105 group-hover:text-white transition-all duration-300">
+                      <FileCheck className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-2.5">
+                    Regulação Sem Burocracia
+                  </h3>
+                  <p class="text-sm text-slate-300/85 leading-relaxed font-normal">
+                    Organizamos fotos, boletins e laudos periciais para encaminhar com precisão técnica à seguradora, blindando seus direitos e evitando negativas indevidas.
+                  </p>
+                </div>
+
+                <div class="pt-6 mt-8 border-t border-slate-800/80 relative z-10">
+                  <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                    <span class="text-sky-400 text-xs">●</span>
+                    <span>Gestão documental completa</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 03 - Aceleração da Indenização */}
+            <div class="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-1">
+              {/* Borda com reflexo metálico angular */}
+              <div 
+                class="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-700 opacity-70 group-hover:opacity-100"
+                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(148,163,184,0.18) 28%, rgba(56,189,248,0.35) 48%, rgba(255,255,255,0.6) 52%, rgba(148,163,184,0.12) 72%, rgba(255,255,255,0.25) 100%);"
+              />
+
+              {/* Corpo Metálico */}
+              <div 
+                class="relative h-full rounded-[calc(1rem-1px)] p-7 sm:p-8 flex flex-col justify-between overflow-hidden shadow-[0_24px_50px_rgba(0,0,0,0.9)]"
+                style="background: linear-gradient(150deg, #131E31 0%, #0C1625 35%, #08101C 72%, #050A14 100%); box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.28), inset 0 0 20px 0 rgba(255, 255, 255, 0.02), 0 20px 45px -10px rgba(0, 0, 0, 0.9);"
+              >
+                {/* Feixe Suave de Luz Diagonal (Soft Specular Beam) */}
+                <div 
+                  class="absolute inset-0 pointer-events-none rounded-[calc(1rem-1px)] opacity-60 group-hover:opacity-90 transition-opacity duration-700"
+                  style="background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.03) 38%, rgba(255,255,255,0.12) 47%, rgba(186,230,253,0.2) 50%, rgba(255,255,255,0.06) 53%, transparent 70%);"
+                />
+
+                {/* Hairline de topo refletindo luz */}
+                <div class="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
+
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-6">
+                    <span class="text-sm text-slate-400 font-medium tracking-normal block">
+                      03
+                    </span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent border border-white/20 flex items-center justify-center text-sky-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_4px_12px_rgba(0,0,0,0.5)] group-hover:scale-105 group-hover:text-white transition-all duration-300">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-2.5">
+                    Aceleração da Indenização
+                  </h3>
+                  <p class="text-sm text-slate-300/85 leading-relaxed font-normal">
+                    Cobramos os prazos contratuais da seguradora com rigor técnico até a autorização dos reparos em oficina credenciada ou o depósito integral do valor.
+                  </p>
+                </div>
+
+                <div class="pt-6 mt-8 border-t border-slate-800/80 relative z-10">
+                  <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                    <span class="text-sky-400 text-xs">●</span>
+                    <span>Acompanhamento até a quitação</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </MotionReveal>
+
+        {/* Barra de Ação Inferior */}
+        <MotionReveal client:visible delay={0.15}>
+          <div class="mt-14 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-center">
+            <span class="text-xs sm:text-sm text-slate-300 font-medium flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Precisa de suporte agora ou quer tirar dúvidas sobre coberturas?</span>
+            </span>
+            <WhatsAppCTA
+              productName="Suporte & Sinistro"
+              label="Falar com Plantão de Atendimento"
+              size="sm"
+              variant="whatsapp"
+              fullWidthMobile={false}
+              className="btn-press shadow-[0_12px_28px_rgba(16,185,129,0.35)] font-semibold text-xs"
+            />
+          </div>
+        </MotionReveal>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. SEÇÃO DIFERENCIAIS: LAYOUT EDITORIAL / PRIVATE BANKING                 -->
+    <!-- ========================================================================= -->
+    <section id="diferenciais" class="py-20 sm:py-28 scroll-mt-24 lg:scroll-mt-32 bg-[#070B14] border-t border-b border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <MotionReveal client:visible delay={0.05}>
+          <div class="max-w-3xl mb-12 sm:mb-16">
+            <span class="inline-block text-xs font-medium uppercase tracking-wider text-slate-300 bg-white/5 border border-white/10 px-3.5 py-1 rounded-full mb-4">
+              PADRÃO DE ATENDIMENTO EXCLUSIVO
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+              Serviços consultivos guiados por <span class="italic font-serif text-sky-400">dedicação técnica</span>.
+            </h2>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+              Diferenciais de engenharia de risco construídos para quem valoriza patrimônio, tempo e atendimento humano sem intermediários robóticos.
+            </p>
+          </div>
+        </MotionReveal>
+
+        {/* Grade Editorial de 3 Colunas com Divisórias Sutis */}
+        <MotionReveal client:visible delay={0.1}>
+          <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800/80 border-t border-b border-slate-800/80">
+            
+            {/* Coluna 01 */}
+            <div class="p-8 sm:p-10 flex flex-col justify-between h-full hover:bg-slate-900/30 transition-colors duration-300">
+              <div>
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-3 block">
+                  01
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-white mb-3">
+                  Assessoria Direta com Sócios
+                </h3>
+                <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+                  Interlocução direta com Paulo Martins e André. Decisões estratégicas e agilidade técnica sem filtros burocráticos ou menus automatizados.
+                </p>
+              </div>
+
+              <div class="pt-6 mt-8 border-t border-slate-800/60">
+                <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                  <span class="text-sky-400 text-xs">●</span>
+                  <span>Disponibilidade regional e nacional</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Coluna 02 */}
+            <div class="p-8 sm:p-10 flex flex-col justify-between h-full hover:bg-slate-900/30 transition-colors duration-300">
+              <div>
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-3 block">
+                  02
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-white mb-3">
+                  Imparcialidade Técnica
+                </h3>
+                <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+                  Atuação estrita como corretora consultiva. Analisamos detalhadamente franquias, cláusulas e coberturas para blindar exclusivamente os interesses contratuais da sua família ou negócio.
+                </p>
+              </div>
+
+              <div class="pt-6 mt-8 border-t border-slate-800/60">
+                <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                  <span class="text-sky-400 text-xs">●</span>
+                  <span>Auditoria personalizada de apólices</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Coluna 03 */}
+            <div class="p-8 sm:p-10 flex flex-col justify-between h-full hover:bg-slate-900/30 transition-colors duration-300">
+              <div>
+                <span class="text-sm text-slate-500 font-medium tracking-normal mb-3 block">
+                  03
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-white mb-3">
+                  Operações Corporativas &amp; Agro
+                </h3>
+                <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+                  Estruturação sob medida para maquinários agrícolas, frotas pesadas, usinas fotovoltaicas e plantas industriais no Sudoeste Mineiro e além.
+                </p>
+              </div>
+
+              <div class="pt-6 mt-8 border-t border-slate-800/60">
+                <span class="text-xs font-medium text-slate-400 flex items-center gap-2">
+                  <span class="text-sky-400 text-xs">●</span>
+                  <span>Gestão de grandes riscos</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </MotionReveal>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. FAQ GERAL (Acordeão em Camadas de Azul)                                -->
+    <!-- ========================================================================= -->
+    <MotionReveal client:visible>
+      <div class="my-6">
+        <FAQAccordion
+          client:visible
+          items={HOME_FAQS}
+          title="Dúvidas Frequentes"
+          subtitle="Entenda como funciona nossa consultoria rápida pelo WhatsApp"
+          productName="Geral"
+        />
+      </div>
+    </MotionReveal>
+
+    <!-- ========================================================================= -->
+    <!-- 8. SEÇÃO DE CTA FINAL (Floating Island em Azul Marinho)                   -->
+    <!-- ========================================================================= -->
+    <section class="relative overflow-hidden py-12 sm:py-16 px-4">
+      <MotionReveal client:visible>
+        <div class="max-w-4xl mx-auto">
+          <div class="rounded-3xl bg-gradient-to-b from-[#0F2D5C] via-[#0A1F3E] to-[#07162E] border border-sky-400/30 py-12 px-6 sm:px-12 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(2,6,23,0.9),inset_0_1px_1px_rgba(255,255,255,0.2)]">
+            <div class="absolute inset-0 bg-noise opacity-20 pointer-events-none"></div>
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-56 bg-sky-500/20 blur-3xl rounded-full pointer-events-none"></div>
+            
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4 relative z-10 text-balance">
+              A proteção certa para o seu patrimônio está a uma mensagem.
+            </h2>
+            
+            <p class="text-xs sm:text-base text-slate-300/85 max-w-lg mx-auto font-normal mb-8 relative z-10">
+              Diga qual seguro tem interesse e receba um estudo comparativo gratuito das melhores seguradoras, direto no seu WhatsApp.
+            </p>
+
+            <div class="flex justify-center relative z-10">
+              <WhatsAppCTA
+                productName="Geral"
+                label="Iniciar Atendimento no WhatsApp"
+                size="lg"
+                variant="whatsapp"
+                fullWidthMobile={true}
+                className="btn-press shadow-[0_15px_35px_rgba(16,185,129,0.35)] !px-8 !py-4 text-sm sm:text-base"
+              />
+            </div>
+          </div>
+        </div>
+      </MotionReveal>
+    </section>
+  </div>
+</Layout>

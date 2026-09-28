@@ -1,0 +1,49 @@
+<svg viewBox="0 0 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="JRX Seguros">
+  <defs>
+    <linearGradient id="jrxRightGlow" x1="330" y1="50" x2="480" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#2054A6" />
+      <stop offset="42%" stopColor="#38BDF8" />
+      <stop offset="68%" stopColor="#0284C7" />
+      <stop offset="100%" stopColor="#1E40AF" />
+    </linearGradient>
+    <linearGradient id="jrxDiamondGrad" x1="310" y1="15" x2="310" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#67E8F9" />
+      <stop offset="50%" stopColor="#38BDF8" />
+      <stop offset="100%" stopColor="#0284C7" />
+    </linearGradient>
+    <radialGradient id="jrxCoreLight" cx="395" cy="115" r="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#67E8F9" stopOpacity="0.85" />
+      <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.4" />
+      <stop offset="100%" stopColor="#2054A6" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- LETRA J -->
+  <path d="M 108 20 H 156 V 135 C 156 168, 134 198, 98 198 C 62 198, 25 174, 25 132 L 72 132 C 72 148, 82 158, 98 158 C 106 158, 108 150, 108 135 Z" fill="#2054A6" />
+
+  <!-- LETRA R -->
+  <path d="M 164 20 H 258 C 285 20, 305 38, 305 68 C 305 92, 290 108, 266 114 L 308 198 H 260 L 223 124 H 212 V 198 H 164 Z M 212 58 V 88 H 252 C 262 88, 268 82, 268 73 C 268 64, 262 58, 252 58 Z" fill="#2054A6" />
+
+  <!-- LETRA X -->
+  <polygon points="310,20 348,20 338,72 308,72" fill="#2054A6" />
+  <polygon points="308,142 338,142 348,198 310,198" fill="#2054A6" />
+  <polygon points="432,20 470,20 405,108 368,108" fill="url(#jrxRightGlow)" />
+  <polygon points="368,108 405,108 474,198 434,198" fill="url(#jrxRightGlow)" />
+  <circle cx="395" cy="112" r="55" fill="url(#jrxCoreLight)" />
+
+  <!-- DIAMANTE CENTRAL -->
+  <polygon points="310,12 360,108 310,204 260,108" fill="url(#jrxDiamondGrad)" />
+
+  <!-- GUARDA-CHUVA E PROTEÇÃO -->
+  <line x1="310" y1="40" x2="310" y2="48" stroke="#FFFFFF" strokeWidth="3.2" strokeLinecap="round" />
+  <path d="M 278 76 C 278 54, 292 46, 310 46 C 328 46, 342 54, 342 76 C 336 72, 330 72, 325 76 C 320 72, 314 72, 310 75 C 306 72, 300 72, 295 76 C 290 72, 284 72, 278 76 Z" fill="#FFFFFF" />
+  <circle cx="310" cy="96" r="20" fill="#FFFFFF" />
+  <path d="M 296 98 L 302 92 L 308 98 V 104 H 296 Z" fill="#0284C7" />
+  <path d="M 307 104 V 90 H 315 V 104 Z" fill="#0284C7" />
+  <rect x="313" y="87" width="2" height="3" fill="#0284C7" />
+  <path d="M 314 98 L 320 93 L 325 98 V 104 H 314 Z" fill="#0284C7" />
+  <path d="M 310 116 V 130 C 310 137, 304 140, 299 137 C 294 134, 294 129, 299 127" fill="none" stroke="#FFFFFF" strokeWidth="3.2" strokeLinecap="round" />
+
+  <!-- SUBTÍTULO SEGUROS -->
+  <text x="254" y="256" textAnchor="middle" fill="#2054A6" fontSize="41" fontWeight="700" letterSpacing="0.36em" fontFamily="system-ui, -apple-system, sans-serif">SEGUROS</text>
+</svg>

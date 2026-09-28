@@ -1,0 +1,134 @@
+---
+import { Navbar } from '@/src/components/Navbar';
+import { Footer } from '@/src/components/Footer';
+import { FloatingWhatsApp } from '@/src/components/FloatingWhatsApp';
+import '@/src/index.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  keywords?: string[];
+  productName?: string;
+}
+
+const {
+  title = 'JRX Seguros | Proteção e Tranquilidade para Você e sua Empresa',
+  description = 'Consultoria especializada em seguros em Passos - MG com atendimento para todo o Brasil. Cotação rápida no WhatsApp para Seguro de Vida, Auto, Residencial, Empresarial e Solar.',
+  canonical,
+  ogImage = '/logo-jrx.png',
+  keywords = [
+    'seguro de vida',
+    'seguro auto',
+    'seguro residencial',
+    'seguro empresarial',
+    'consultoria de seguros',
+    'Passos MG',
+    'JRX Seguros',
+    'cotação de seguro',
+    'seguro WhatsApp',
+  ],
+  productName,
+} = Astro.props;
+
+const canonicalURL = canonical 
+  ? new URL(canonical, Astro.site || 'https://jrxseguros.com.br').toString()
+  : new URL(Astro.url.pathname, Astro.site || 'https://jrxseguros.com.br').toString();
+
+const ogImageUrl = ogImage.startsWith('http') 
+  ? ogImage 
+  : new URL(ogImage, Astro.site || 'https://jrxseguros.com.br').toString();
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#061224" />
+
+    <!-- Favicon Oficial JRX Seguros -->
+    <link rel="icon" type="image/png" href="/logo-jrx.png" />
+    <link rel="shortcut icon" href="/logo-jrx.png" />
+    <link rel="apple-touch-icon" href="/logo-jrx.png" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Google Fonts Preconnect & Zero Render-Blocking Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Public+Sans:ital,wght@0,300..800;1,400..700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Public+Sans:ital,wght@0,300..800;1,400..700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Public+Sans:ital,wght@0,300..800;1,400..700&display=swap"
+      />
+    </noscript>
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content="JRX Seguros - Unidade Passos" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="JRX Seguros" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <slot name="head" />
+  </head>
+  <body class="bg-[#061224] antialiased text-slate-100 font-sans selection:bg-sky-500 selection:text-white">
+    <div class="min-h-screen flex flex-col">
+      <!-- Top Navigation Bar -->
+      <Navbar client:load currentPath={Astro.url.pathname} />
+
+      <!-- Main Page Content -->
+      <main class="flex-1 w-full flex flex-col">
+        <slot />
+      </main>
+
+      <!-- Institutional Footer -->
+      <Footer client:visible />
+
+      <!-- Floating WhatsApp FAB — visível em todas as páginas -->
+      <FloatingWhatsApp client:idle currentProduct={productName} />
+    </div>
+
+    <!-- Premissa 10: Medição de Tráfego e Conversões (Google Analytics / GTM) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRXSEGUROS"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JRXSEGUROS', {
+        page_path: window.location.pathname,
+        transport_type: 'beacon'
+      });
+    </script>
+  </body>
+</html>
