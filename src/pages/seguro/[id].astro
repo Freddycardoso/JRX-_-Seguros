@@ -76,23 +76,23 @@ const seguroJsonLd = {
     <!-- ========================================================================= -->
     <!-- BREADCRUMB EDITORIAL                                                      -->
     <!-- ========================================================================= -->
-    <nav class="bg-[#050E1D] border-b border-white/[0.06] py-3.5 relative z-10 transition-colors" aria-label="Navegação breadcrumb">
+    <nav class="bg-[#050E1D] border-b border-white/[0.06] py-2.5 sm:py-3.5 relative z-10 transition-colors" aria-label="Navegação breadcrumb">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ol class="flex items-center gap-2 text-xs text-slate-400">
+        <ol class="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-400 overflow-x-auto whitespace-nowrap py-0.5">
           <li>
-            <a href="/" class="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+            <a href="/" class="hover:text-white transition-colors flex items-center gap-1.5 font-medium shrink-0">
               <ArrowLeft className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
               <span>Início</span>
             </a>
           </li>
-          <li aria-hidden="true" class="text-slate-600">/</li>
-          <li>
+          <li aria-hidden="true" class="text-slate-600 shrink-0">/</li>
+          <li class="shrink-0">
             <a href="/#nossos-seguros" class="hover:text-white transition-colors font-medium">
               Seguros
             </a>
           </li>
-          <li aria-hidden="true" class="text-slate-600">/</li>
-          <li aria-current="page">
+          <li aria-hidden="true" class="text-slate-600 shrink-0">/</li>
+          <li aria-current="page" class="shrink-0">
             <span class="font-medium text-white">{seguro.nome}</span>
           </li>
         </ol>
@@ -102,7 +102,7 @@ const seguroJsonLd = {
     <!-- ========================================================================= -->
     <!-- 1. HERO ESPECÍFICO DO SEGURO (Awwwards-Tier Cover & Emil Kowalski Craft)    -->
     <!-- ========================================================================= -->
-    <section class="relative overflow-hidden bg-[#050E1D] text-white pt-16 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 border-b border-white/[0.08]">
+    <section class="relative overflow-hidden bg-[#050E1D] text-white pt-10 sm:pt-20 lg:pt-28 pb-14 sm:pb-20 border-b border-white/[0.08]">
       {/* Iluminação Atmosférica & Backdrop Cinematográfico */}
       <div class="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
         <img
@@ -121,12 +121,12 @@ const seguroJsonLd = {
       </div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           <!-- Coluna Esquerda: Conteúdo Estratégico & Ação Exploratória -->
-          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
             <MotionReveal client:visible delay={0.05}>
-              <div class="inline-flex items-center gap-2.5 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md text-[11px] font-medium tracking-[0.16em] uppercase text-sky-300">
+              <div class="inline-flex items-center flex-wrap justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-sky-300 max-w-full">
                 <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
                 <span>{seguro.category}</span>
                 <span class="text-slate-600">/</span>
@@ -135,31 +135,31 @@ const seguroJsonLd = {
             </MotionReveal>
 
             <MotionReveal client:visible delay={0.1}>
-              <h1 class="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white leading-[1.08] text-balance">
+              <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold sm:font-extrabold tracking-normal sm:tracking-tight text-white leading-[1.28] sm:leading-[1.18] lg:leading-[1.12] text-balance">
                 {seguro.heroHeadline || seguro.titulo}
               </h1>
             </MotionReveal>
 
             <MotionReveal client:visible delay={0.15}>
-              <p class="text-base sm:text-lg text-slate-300/85 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal text-balance">
+              <p class="text-sm sm:text-base lg:text-lg text-slate-200/90 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal text-balance mt-3 sm:mt-4">
                 {seguro.heroSubheadline || seguro.descricao}
               </p>
             </MotionReveal>
 
             <!-- Ação Exploratória (Emil Kowalski Button-in-Button - Sem excesso de WhatsApp no Topo) -->
             <MotionReveal client:visible delay={0.2}>
-              <div class="pt-2 flex flex-wrap items-center gap-4 justify-center lg:justify-start">
+              <div class="pt-3 flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 justify-center lg:justify-start">
                 <a
                   href="#vantagens"
-                  class="group inline-flex items-center gap-3.5 pl-6 pr-2.5 py-2.5 rounded-full bg-white hover:bg-sky-400 text-black font-semibold text-sm transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_4px_24px_rgba(255,255,255,0.12)] hover:shadow-[0_8px_32px_rgba(56,189,248,0.4)] active:scale-[0.97]"
+                  class="group inline-flex items-center justify-between sm:justify-start gap-3.5 pl-5 pr-2 py-2 sm:pl-6 sm:pr-2.5 sm:py-2.5 rounded-full bg-white hover:bg-sky-400 text-black font-semibold text-xs sm:text-sm transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_4px_24px_rgba(255,255,255,0.12)] hover:shadow-[0_8px_32px_rgba(56,189,248,0.4)] active:scale-[0.97] w-full sm:w-auto"
                 >
-                  <span>Explorar Diretrizes &amp; Coberturas</span>
-                  <span class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                  <span class="mx-auto sm:mx-0">Explorar Diretrizes &amp; Coberturas</span>
+                  <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-y-0.5 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] shrink-0">
                     <ArrowDown className="w-3.5 h-3.5 text-black" aria-hidden="true" />
                   </span>
                 </a>
 
-                <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-sm text-xs text-slate-300">
+                <div class="inline-flex items-center justify-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-sm text-[11px] sm:text-xs text-slate-300 w-full sm:w-auto">
                   <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -169,16 +169,16 @@ const seguroJsonLd = {
               </div>
 
               <!-- Marcadores de Confiança Executiva -->
-              <div class="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-y-2.5 gap-x-6 text-xs font-medium text-slate-400">
-                <div class="flex items-center gap-2">
+              <div class="pt-5 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-[11px] sm:text-xs font-medium text-slate-400">
+                <div class="flex items-center gap-1.5 sm:gap-2">
                   <span class="text-sky-400 text-xs">●</span>
                   <span>Curadoria Multisseguradoras</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5 sm:gap-2">
                   <span class="text-sky-400 text-xs">●</span>
                   <span>Apoio Direto em Sinistro com Sócios</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5 sm:gap-2">
                   <span class="text-sky-400 text-xs">●</span>
                   <span>Passos - MG &amp; Atendimento Nacional</span>
                 </div>
@@ -290,7 +290,7 @@ const seguroJsonLd = {
             <span class="inline-block text-xs font-medium uppercase tracking-wider text-slate-300 bg-white/5 border border-white/10 px-3.5 py-1 rounded-full mb-4">
               VANTAGENS ESTRATÉGICAS
             </span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-normal sm:tracking-tight leading-snug sm:leading-tight mb-4">
               Por que contratar o <span class="italic font-serif text-sky-400">{seguro.nome}</span>?
             </h2>
             <p class="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
@@ -351,7 +351,7 @@ const seguroJsonLd = {
                   <span class="inline-block text-xs font-medium uppercase tracking-wider text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full mb-3">
                     PROTEÇÃO INTEGRAL
                   </span>
-                  <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  <h3 class="text-xl sm:text-3xl font-bold text-white tracking-normal sm:tracking-tight leading-snug">
                     O que está coberto no <span class="italic font-serif text-sky-400">{seguro.nome}</span>
                   </h3>
                 </div>
@@ -418,7 +418,7 @@ const seguroJsonLd = {
             <span>Unidade Passos - MG · Atendimento Nacional</span>
           </span>
 
-          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight text-balance max-w-3xl mx-auto mt-2 mb-4">
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-normal sm:tracking-tight text-white leading-snug sm:leading-tight text-balance max-w-3xl mx-auto mt-2 mb-4">
             Cote agora o <span class="italic font-serif text-sky-400">{seguro.nome}</span> com um consultor especialista
           </h2>
 
