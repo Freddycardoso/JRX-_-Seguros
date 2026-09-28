@@ -72,12 +72,12 @@ export const WhatsAppCTA: React.FC<WhatsAppCTAProps> = ({
 
   // Premissa 4: Mobile First com altura mínima de toque de 48px
   const baseStyles =
-    'group relative inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none shadow-sm hover:shadow-md active:scale-[0.99] cursor-pointer min-h-[48px]';
+    'group relative inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none shadow-sm hover:shadow-md active:scale-[0.99] cursor-pointer min-h-[48px] max-w-full';
 
   const sizeStyles = {
-    sm: 'text-xs sm:text-sm px-4 py-3 min-h-[48px]',
-    md: 'text-sm sm:text-base px-6 py-3.5 min-h-[48px]',
-    lg: 'text-base sm:text-lg px-8 py-4 min-h-[52px]',
+    sm: 'text-xs sm:text-sm px-3.5 py-2.5 sm:px-4 sm:py-3 min-h-[44px] sm:min-h-[48px]',
+    md: 'text-sm sm:text-base px-4 py-3 sm:px-6 sm:py-3.5 min-h-[48px]',
+    lg: 'text-sm sm:text-base lg:text-lg px-4 py-3 sm:px-7 sm:py-4 min-h-[48px] sm:min-h-[52px]',
   }[size];
 
   const variantStyles = {
@@ -223,14 +223,14 @@ export const WhatsAppCTA: React.FC<WhatsAppCTAProps> = ({
         aria-label={`${label} para ${productName}`}
         className={`${baseStyles} ${sizeStyles} ${variantStyles} ${mobileWidthStyle} ${className}`}
       >
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center justify-center gap-2.5 max-w-full min-w-0">
           {iconPosition === 'left' && (
             <WhatsAppIcon className="w-5 h-5 shrink-0 transition-transform duration-200 group-hover:scale-110" />
           )}
-          <div className="flex flex-col items-center sm:items-start text-left">
-            <span className="whitespace-nowrap leading-tight">{label}</span>
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left min-w-0">
+            <span className="leading-snug break-words sm:whitespace-nowrap text-center sm:text-left">{label}</span>
             {showSubtitle && (
-              <span className="text-[11px] font-normal opacity-90 leading-tight">
+              <span className="text-[10px] sm:text-[11px] font-normal opacity-90 leading-tight mt-0.5">
                 Atendimento por Paulo Martins ou André
               </span>
             )}
