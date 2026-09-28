@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath = '/' }) => {
   const isHome = pathname === '/' || pathname === '';
 
   return (
-    <header className="sticky top-4 sm:top-5 z-50 w-full max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-300">
+    <header className="sticky top-4 sm:top-5 z-50 w-full max-w-6xl mx-auto px-4 sm:px-6">
       <div className="bg-[#091D3E]/90 backdrop-blur-2xl border border-sky-400/20 rounded-full shadow-[0_14px_35px_rgba(2,8,22,0.7),inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-between h-16 px-6 relative">
         {/* Subtle noise inside the nav */}
         <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none rounded-full overflow-hidden" />
