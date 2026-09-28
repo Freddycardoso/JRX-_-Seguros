@@ -118,7 +118,10 @@ export const WhatsAppCTA: React.FC<WhatsAppCTAProps> = ({
 
       {/* Modal de Escolha do Corretor (Paulo Martins ou André) */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-150">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-150"
+          onClick={() => setModalOpen(false)}
+        >
           <div
             className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 overflow-hidden animate-in zoom-in-95 duration-150"
             onClick={(e) => e.stopPropagation()}

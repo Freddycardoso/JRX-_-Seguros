@@ -195,6 +195,7 @@ const homeJsonLd = {
           <MotionReveal client:visible delay={0.2}>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
               <WhatsAppCTA
+                client:load
                 productName="Geral"
                 label="Falar com Paulo ou André"
                 size="lg"
@@ -549,6 +550,7 @@ const homeJsonLd = {
               <span>Precisa de suporte agora ou quer tirar dúvidas sobre coberturas?</span>
             </span>
             <WhatsAppCTA
+              client:visible
               productName="Suporte & Sinistro"
               label="Falar com Plantão de Atendimento"
               size="sm"
@@ -693,6 +695,7 @@ const homeJsonLd = {
 
             <div class="flex justify-center relative z-10">
               <WhatsAppCTA
+                client:visible
                 productName="Geral"
                 label="Iniciar Atendimento no WhatsApp"
                 size="lg"
