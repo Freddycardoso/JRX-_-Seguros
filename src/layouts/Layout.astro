@@ -14,20 +14,23 @@ interface Props {
 }
 
 const {
-  title = 'JRX Seguros | Proteção e Tranquilidade para Você e sua Empresa',
-  description = 'Consultoria especializada em seguros em Passos - MG com atendimento para todo o Brasil. Cotação rápida no WhatsApp para Seguro de Vida, Auto, Residencial, Empresarial e Solar.',
+  title = 'JRX Seguros | Consultoria Patrimonial e Gestão de Riscos',
+  description = 'Consultoria em seguros em Passos - MG. Cotação ágil via WhatsApp para Seguro de Vida, Auto, Agro, Residencial e Empresarial com atendimento humano e imparcial.',
   canonical,
-  ogImage = '/logo-jrx.png',
+  ogImage = '/og-image.jpg',
   keywords = [
+    'seguros passos mg',
+    'jrx seguros',
+    'corretora de seguros passos',
     'seguro de vida',
     'seguro auto',
     'seguro residencial',
     'seguro empresarial',
     'consultoria de seguros',
     'Passos MG',
-    'JRX Seguros',
-    'cotação de seguro',
-    'seguro WhatsApp',
+    'cotação de seguro whatsapp',
+    'Paulo Martins seguros',
+    'Andre corretor',
   ],
   productName,
 } = Astro.props;
@@ -47,13 +50,17 @@ const ogImageUrl = ogImage.startsWith('http')
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#061224" />
+    <meta name="theme-color" content="#070B14" />
 
-    <!-- Favicon Oficial JRX Seguros -->
+    <!-- Favicon Oficial JRX Seguros & PWA Manifest -->
     <link rel="icon" type="image/png" href="/logo-jrx.png" />
     <link rel="shortcut icon" href="/logo-jrx.png" />
     <link rel="apple-touch-icon" href="/logo-jrx.png" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Google Search Console Verification Token -->
+    <meta name="google-site-verification" content="INSERIR_TOKEN_SEARCH_CONSOLE" />
 
     <!-- Google Fonts Preconnect & Zero Render-Blocking Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

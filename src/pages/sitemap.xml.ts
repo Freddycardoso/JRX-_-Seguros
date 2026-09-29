@@ -3,7 +3,7 @@ import { segurosData } from '@/src/data/seguros';
 
 export const GET: APIRoute = () => {
   const baseUrl = 'https://jrxseguros.com.br';
-  const lastMod = new Date().toISOString().split('T')[0];
+  const lastMod = new Date().toISOString();
 
   const urls = [
     `  <url>

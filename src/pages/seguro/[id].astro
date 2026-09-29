@@ -37,17 +37,22 @@ if (!seguro) {
 const seguroJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FinancialProduct',
+  '@id': `https://jrxseguros.com.br/seguro/${seguro.id}#product`,
   name: seguro.nome,
   description: seguro.descricao,
+  image: seguro.imagemUrl,
+  category: seguro.category,
   provider: {
     '@type': 'InsuranceAgency',
     name: 'JRX Seguros',
+    url: 'https://jrxseguros.com.br',
     telephone: '+55-35-99154-5108',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rua dos Brandões, 231, Sala 30',
       addressLocality: 'Passos',
       addressRegion: 'MG',
+      postalCode: '37900-118',
       addressCountry: 'BR',
     },
   },
@@ -55,13 +60,60 @@ const seguroJsonLd = {
     '@type': 'Offer',
     price: '0.00',
     priceCurrency: 'BRL',
+    priceValidUntil: '2027-12-31',
     availability: 'https://schema.org/InStock',
+    url: `https://jrxseguros.com.br/seguro/${seguro.id}`,
+    seller: {
+      '@type': 'InsuranceAgency',
+      name: 'JRX Seguros',
+    },
   },
 };
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Início',
+      item: 'https://jrxseguros.com.br/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Seguros',
+      item: 'https://jrxseguros.com.br/#nossos-seguros',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: seguro.nome,
+      item: `https://jrxseguros.com.br/seguro/${seguro.id}`,
+    },
+  ],
+};
+
+const faqJsonLd =
+  seguro.faqs && seguro.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: seguro.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
 ---
 
 <Layout
-  title={`${seguro.nome} | JRX Seguros Unidade Passos - MG`}
+  title={`${seguro.nome} em Passos - MG | Cotação Rápida WhatsApp | JRX Seguros`}
   description={`${seguro.titulo} ${seguro.descricao} Faça sua cotação rápida no WhatsApp da JRX Seguros.`}
   canonical={`/seguro/${seguro.id}`}
   ogImage={seguro.imagemUrl}
@@ -69,6 +121,8 @@ const seguroJsonLd = {
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(seguroJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
     <link rel="preload" as="image" href={seguro.imagemUrl} fetchpriority="high" />
   </Fragment>
 

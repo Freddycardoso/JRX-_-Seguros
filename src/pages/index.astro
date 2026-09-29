@@ -65,8 +65,19 @@ const HOME_FAQS: FaqItem[] = [
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'InsuranceAgency',
-  name: SITE_CONFIG.name,
-  description: 'Corretora de seguros em Passos - MG com atendimento para todo o Brasil.',
+  '@id': 'https://jrxseguros.com.br/#organization',
+  name: 'JRX Seguros',
+  alternateName: ['JRX Seguros Unidade Passos', 'JRX Consultoria de Riscos e Seguros'],
+  description:
+    'Consultoria e assessoria independente em gestão de riscos patrimoniais e seguros em Passos - MG e região. Cotação rápida e humanizada no WhatsApp com análise comparativa multisseguradoras.',
+  url: 'https://jrxseguros.com.br',
+  logo: 'https://jrxseguros.com.br/logo-jrx.png',
+  image: 'https://jrxseguros.com.br/og-image.jpg',
+  telephone: '+55-35-99154-5108',
+  email: SITE_CONFIG.email,
+  priceRange: '$$',
+  currenciesAccepted: 'BRL',
+  paymentAccepted: 'Boleto Bancário, Cartão de Crédito, Débito em Conta, Pix',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Rua dos Brandões, 231, Sala 30',
@@ -75,24 +86,81 @@ const homeJsonLd = {
     postalCode: '37900-118',
     addressCountry: 'BR',
   },
-  telephone: '+55-35-99154-5108',
-  email: SITE_CONFIG.email,
-  priceRange: '$$',
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -20.7188,
+    longitude: -46.6097,
+  },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '08:00',
-      closes: '19:00',
+      closes: '17:00',
     },
+  ],
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Passos',
+      sameAs: 'https://pt.wikipedia.org/wiki/Passos_(Minas_Gerais)',
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Sudoeste Mineiro',
+    },
+    {
+      '@type': 'Country',
+      name: 'Brasil',
+    },
+  ],
+  founder: [
+    {
+      '@type': 'Person',
+      name: 'Paulo Martins',
+      jobTitle: 'Sócio-Consultor Especialista em Riscos e Seguros',
+      telephone: '+55-35-99154-5108',
+    },
+    {
+      '@type': 'Person',
+      name: 'André',
+      jobTitle: 'Sócio-Consultor Especialista em Riscos e Seguros',
+      telephone: '+55-35-98835-7944',
+    },
+  ],
+  employee: [
+    {
+      '@type': 'Person',
+      name: 'Paulo Martins',
+      jobTitle: 'Consultor Especialista em Riscos e Seguros',
+    },
+    {
+      '@type': 'Person',
+      name: 'André',
+      jobTitle: 'Consultor Especialista em Riscos e Seguros',
+    },
+  ],
+  knowsAbout: [
+    'Seguro de Vida',
+    'Seguro Empresarial',
+    'Seguro Residencial',
+    'Seguro Automóvel',
+    'Seguro Viagem',
+    'Plano de Saúde',
+    'Seguro Fotovoltaico',
+    'Máquinas Agrícolas',
+    'Seguro de Moto',
+    'Fiança Locatícia',
+    'Consórcios',
   ],
 };
 ---
 
 <Layout
-  title="JRX Seguros | Proteção e Tranquilidade para Você e sua Empresa"
-  description="Consultoria especializada em seguros em Passos - MG com atendimento para todo o Brasil. Cotação rápida no WhatsApp para Seguro de Vida, Auto, Residencial, Empresarial e Solar."
+  title="JRX Seguros | Consultoria Patrimonial e Gestão de Riscos"
+  description="Consultoria em seguros em Passos - MG. Cotação ágil via WhatsApp para Seguro de Vida, Auto, Agro, Residencial e Empresarial com atendimento humano e imparcial."
   canonical="/"
+  ogImage="/og-image.jpg"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(homeJsonLd)} />
