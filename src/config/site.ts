@@ -14,6 +14,8 @@ export const SITE_CONFIG = {
   state: 'MG',
   email: 'contato@jrxseguros.com.br',
   cnpj: '48.291.834/0001-90',
+  susep: 'Corretora Habilitada e Autorizada SUSEP',
+  responseTime: 'Menos de 3 minutos',
   operatingHours: 'Segunda a Sexta, das 08h às 17h presencialmente',
   googleMapsUrl: 'https://maps.google.com/?q=Rua+dos+Brandões,+231,+Passos+-+MG',
   googleRating: 4.9,

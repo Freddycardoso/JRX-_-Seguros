@@ -36,122 +36,212 @@ const PARTNER_INSURERS = [
 
 const HOME_FAQS: FaqItem[] = [
   {
-    question: 'Como funciona a cotação pelo WhatsApp da JRX Seguros?',
+    question: 'Como funciona a cotação de seguros pelo WhatsApp da JRX Seguros?',
     answer:
-      'É muito simples e direto: ao clicar no botão de WhatsApp, você conversa em tempo real com nossos consultores especialistas (Paulo Martins ou André). Basta informar o que deseja proteger (seu carro, sua vida, sua residência ou empresa) e apresentamos um comparativo das melhores seguradoras do Brasil com as melhores condições.',
+      'A cotação é 100% digital e sem burocracia: ao clicar em nosso botão de WhatsApp, você conversa diretamente com os consultores especializados Paulo Martins ou André. Você informa os dados básicos do seu veículo, patrimônio ou empresa, e nossa equipe analisa suas necessidades reais para apresentar as melhores opções em poucos minutos.',
   },
   {
-    question: 'Como recebo o comparativo das seguradoras?',
+    question: 'Como recebo o estudo comparativo das seguradoras?',
     answer:
-      'Enviamos o comparativo completo de preços e coberturas diretamente na conversa do WhatsApp para você avaliar com calma e tirar todas as suas dúvidas com nossos consultores.',
+      'Nossa equipe elabora e envia uma tabela comparativa detalhada diretamente no seu WhatsApp. Nela, você visualiza lado a lado os preços, valores de franquia e coberturas das principais companhias do Brasil, podendo tirar dúvidas técnicas de forma transparente antes de decidir qual plano melhor atende à sua família ou empresa.',
   },
   {
-    question: 'A JRX Seguros atende apenas em Passos - MG ou em todo o Brasil?',
+    question: 'A JRX Seguros atende apenas em Passos - MG ou em outras cidades?',
     answer:
-      'Nossa sede física fica em Passos - MG, mas emitimos e prestamos consultoria em apólices para clientes, famílias e empresas em qualquer estado do território nacional, com suporte 100% digital e ágil.',
+      'Nossa sede física está localizada na Rua dos Brandões, 231, Sala 30, em Passos - MG. No entanto, prestamos consultoria, emitimos apólices e oferecemos gestão completa de riscos para clientes, produtores rurais e empresas em todo o Sudoeste Mineiro e em qualquer estado do território nacional com atendimento 100% humanizado.',
   },
   {
-    question: 'O que devo fazer caso ocorra um imprevisto ou sinistro?',
+    question: 'O que devo fazer caso ocorra uma colisão, pane ou sinistro?',
     answer:
-      'Você nunca fica sozinho falando com robôs: mande uma mensagem imediata no WhatsApp da JRX Seguros. Nossa equipe orienta os passos necessários, aciona a assistência e acompanha a liberação da indenização até a conclusão do processo.',
+      'Você nunca fica desamparado em filas de centrais telefônicas: basta acionar imediatamente a JRX Seguros pelo WhatsApp. Nossos consultores orientam os primeiros procedimentos no local, acionam guincho e serviços emergenciais 24h e acompanham todo o processo pericial e documental até a conclusão e o pagamento da indenização pela seguradora.',
   },
   {
-    question: 'Existe algum custo para fazer a cotação e comparação?',
+    question: 'Existe algum custo para realizar a cotação e auditoria de apólice?',
     answer:
-      'Nenhum! Nossa consultoria, análise de apólices anteriores e estudo comparativo multisseguradoras são 100% gratuitos e sem qualquer compromisso de contratação.',
+      'Nenhum custo. O estudo de mercado, a análise comparativa entre as melhores seguradoras e a auditoria de apólices vigentes são serviços inteiramente gratuitos e sem qualquer compromisso de contratação. Nosso objetivo é garantir que você pague estritamente pelo que necessita, com máxima transparência e segurança jurídica.',
+  },
+  {
+    question: 'Com quais seguradoras a JRX Seguros trabalha?',
+    answer:
+      'Trabalhamos em parceria com as 10 maiores e mais sólidas companhias seguradoras do país, incluindo Porto Seguro, Azul Seguros, Tokio Marine, Allianz, Bradesco Seguros, SulAmérica, Mapfre, HDI Seguros, Sompo e Zurich. Essa ampla atuação multimercado garante total independência e imparcialidade na recomendação da melhor apólice para você.',
   },
 ];
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'InsuranceAgency',
-  '@id': 'https://jrxseguros.com.br/#organization',
-  name: 'JRX Seguros',
-  alternateName: ['JRX Seguros Unidade Passos', 'JRX Consultoria de Riscos e Seguros'],
-  description:
-    'Consultoria e assessoria independente em gestão de riscos patrimoniais e seguros em Passos - MG e região. Cotação rápida e humanizada no WhatsApp com análise comparativa multisseguradoras.',
-  url: 'https://jrxseguros.com.br',
-  logo: 'https://jrxseguros.com.br/logo-jrx.png',
-  image: 'https://jrxseguros.com.br/og-image.jpg',
-  telephone: '+55-35-99154-5108',
-  email: SITE_CONFIG.email,
-  priceRange: '$$',
-  currenciesAccepted: 'BRL',
-  paymentAccepted: 'Boleto Bancário, Cartão de Crédito, Débito em Conta, Pix',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Rua dos Brandões, 231, Sala 30',
-    addressLocality: 'Passos',
-    addressRegion: 'MG',
-    postalCode: '37900-118',
-    addressCountry: 'BR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -20.7188,
-    longitude: -46.6097,
-  },
-  openingHoursSpecification: [
+  '@graph': [
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-  ],
-  areaServed: [
-    {
-      '@type': 'City',
-      name: 'Passos',
-      sameAs: 'https://pt.wikipedia.org/wiki/Passos_(Minas_Gerais)',
-    },
-    {
-      '@type': 'AdministrativeArea',
-      name: 'Sudoeste Mineiro',
-    },
-    {
-      '@type': 'Country',
-      name: 'Brasil',
-    },
-  ],
-  founder: [
-    {
-      '@type': 'Person',
-      name: 'Paulo Martins',
-      jobTitle: 'Sócio-Consultor Especialista em Riscos e Seguros',
+      '@type': 'InsuranceAgency',
+      '@id': 'https://jrxseguros.com.br/#organization',
+      name: 'JRX Seguros',
+      legalName: 'JRX Consultoria e Corretagem de Seguros Ltda',
+      alternateName: ['JRX Seguros Passos', 'JRX Seguros Unidade Passos', 'JRX Corretora de Seguros'],
+      description:
+        'Corretora e assessoria independente de seguros em Passos - MG e Sudoeste Mineiro. Cotação rápida via WhatsApp para seguro auto, empresarial, residencial, agro e vida com as 10 maiores seguradoras.',
+      url: 'https://jrxseguros.com.br',
+      logo: 'https://jrxseguros.com.br/logo-jrx.png',
+      image: 'https://jrxseguros.com.br/og-image.jpg',
       telephone: '+55-35-99154-5108',
+      email: SITE_CONFIG.email,
+      taxID: SITE_CONFIG.cnpj,
+      priceRange: '$$',
+      currenciesAccepted: 'BRL',
+      paymentAccepted: 'Boleto Bancário, Cartão de Crédito, Débito em Conta, Pix',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Rua dos Brandões, 231, Sala 30',
+        addressLocality: 'Passos',
+        addressRegion: 'MG',
+        postalCode: '37900-118',
+        addressCountry: 'BR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -20.7188,
+        longitude: -46.6097,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '17:00',
+        },
+      ],
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Passos',
+          sameAs: 'https://pt.wikipedia.org/wiki/Passos_(Minas_Gerais)',
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Sudoeste Mineiro',
+        },
+        {
+          '@type': 'Country',
+          name: 'Brasil',
+        },
+      ],
+      founder: [
+        {
+          '@type': 'Person',
+          name: 'Paulo Martins',
+          jobTitle: 'Consultor Especialista em Riscos e Seguros',
+          telephone: '+55-35-99154-5108',
+        },
+        {
+          '@type': 'Person',
+          name: 'André',
+          jobTitle: 'Consultor Especialista em Riscos e Seguros',
+          telephone: '+55-35-98835-7944',
+        },
+      ],
+      employee: [
+        {
+          '@type': 'Person',
+          name: 'Paulo Martins',
+          jobTitle: 'Consultor Especialista em Riscos e Seguros',
+        },
+        {
+          '@type': 'Person',
+          name: 'André',
+          jobTitle: 'Consultor Especialista em Riscos e Seguros',
+        },
+      ],
+      knowsAbout: [
+        'Seguro Automóvel',
+        'Seguro de Vida',
+        'Seguro Residencial',
+        'Seguro Empresarial',
+        'Máquinas Agrícolas',
+        'Seguro Fotovoltaico',
+        'Planos de Saúde',
+        'Seguro Viagem',
+        'Fiança Locatícia',
+        'Consórcios',
+        'Seguro de Moto',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Catálogo de Seguros e Proteção Patrimonial JRX',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Seguro Automóvel em Passos - MG',
+              description: 'Proteção contra colisão, roubo, furto, danos a terceiros com guincho 24h e cobertura para vidros.',
+              url: 'https://jrxseguros.com.br/seguro/automovel',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Seguro de Vida e Proteção Familiar',
+              description: 'Amparo financeiro imediato sem inventário, indenização em vida para diagnóstico de doenças graves e invalidez.',
+              url: 'https://jrxseguros.com.br/seguro/vida',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Seguro Agrícola e Máquinas no Sudoeste Mineiro',
+              description: 'Proteção para tratores, colheitadeiras e implementos agrícolas operando no campo contra tombamento, raio e incêndio.',
+              url: 'https://jrxseguros.com.br/seguro/maquinas-agricolas',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Seguro Empresarial e Patrimonial',
+              description: 'Blindagem corporativa cobrindo estoque, prédios, responsabilidade civil e lucros cessantes.',
+              url: 'https://jrxseguros.com.br/seguro/empresarial',
+            },
+          },
+        ],
+      },
     },
     {
-      '@type': 'Person',
-      name: 'André',
-      jobTitle: 'Sócio-Consultor Especialista em Riscos e Seguros',
-      telephone: '+55-35-98835-7944',
-    },
-  ],
-  employee: [
-    {
-      '@type': 'Person',
-      name: 'Paulo Martins',
-      jobTitle: 'Consultor Especialista em Riscos e Seguros',
+      '@type': 'WebSite',
+      '@id': 'https://jrxseguros.com.br/#website',
+      url: 'https://jrxseguros.com.br',
+      name: 'JRX Seguros',
+      publisher: {
+        '@id': 'https://jrxseguros.com.br/#organization',
+      },
+      inLanguage: 'pt-BR',
     },
     {
-      '@type': 'Person',
-      name: 'André',
-      jobTitle: 'Consultor Especialista em Riscos e Seguros',
+      '@type': 'WebPage',
+      '@id': 'https://jrxseguros.com.br/#webpage',
+      url: 'https://jrxseguros.com.br',
+      name: 'JRX Seguros | Corretora de Seguros em Passos - MG',
+      isPartOf: {
+        '@id': 'https://jrxseguros.com.br/#website',
+      },
+      about: {
+        '@id': 'https://jrxseguros.com.br/#organization',
+      },
+      description:
+        'Corretora de seguros em Passos - MG. Cotação rápida via WhatsApp com Paulo Martins e André. Comparativo entre Porto Seguro, Tokio Marine, Allianz e Bradesco.',
+      inLanguage: 'pt-BR',
     },
-  ],
-  knowsAbout: [
-    'Seguro de Vida',
-    'Seguro Empresarial',
-    'Seguro Residencial',
-    'Seguro Automóvel',
-    'Seguro Viagem',
-    'Plano de Saúde',
-    'Seguro Fotovoltaico',
-    'Máquinas Agrícolas',
-    'Seguro de Moto',
-    'Fiança Locatícia',
-    'Consórcios',
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://jrxseguros.com.br/#faq',
+      mainEntity: HOME_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
   ],
 };
 ---
@@ -237,40 +327,62 @@ const homeJsonLd = {
       </div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20">
-        <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
           
           <MotionReveal client:visible delay={0.05}>
             <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#091D3E]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(56,189,248,0.18)] mb-6">
               <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span class="text-xs font-bold uppercase tracking-[0.16em] text-sky-300">
-                Atendimento Especializado · Passos - MG &amp; Todo o Brasil
+              <span class="text-xs font-bold uppercase tracking-[0.14em] text-sky-300">
+                Corretora de Seguros em Passos - MG · Atendimento Regional &amp; Nacional
               </span>
             </div>
           </MotionReveal>
 
           <MotionReveal client:visible delay={0.1}>
-            <h1 class="text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight text-white leading-[1.06] mb-6 text-balance">
-              A estrutura da sua <span class="text-sky-400 italic font-serif">segurança</span>.
+            <h1 class="text-3xl sm:text-5xl lg:text-[3.9rem] font-extrabold tracking-tight text-white leading-[1.08] mb-6 text-balance">
+              Corretora de Seguros em Passos - MG: <span class="text-sky-400 italic font-serif">Proteção Inteligente</span> para Veículos, Família e Negócios.
             </h1>
           </MotionReveal>
 
           <MotionReveal client:visible delay={0.15}>
-            <p class="text-base sm:text-xl text-slate-200/90 leading-relaxed max-w-2xl mx-auto font-normal mb-10">
-              Consultoria humana, ágil e focada na sua proteção real com Paulo Martins e André. Cuidamos do que mais importa para a sua família e seus negócios com as melhores seguradoras do país.
+            <p class="text-base sm:text-lg text-slate-200/95 leading-relaxed max-w-2xl mx-auto font-normal mb-7">
+              A <strong>JRX Seguros</strong> compara apólices nas maiores companhias do Brasil (Porto Seguro, Tokio Marine, Allianz e Bradesco) para entregar o melhor custo-benefício. Atendimento humanizado direto no WhatsApp com os consultores <strong>Paulo Martins</strong> e <strong>André</strong>, sem robôs ou esperas.
             </p>
           </MotionReveal>
 
+          {/* Destaques Rápidos em Lista Não-Ordenada (AEO Featured Snippets) */}
+          <MotionReveal client:visible delay={0.18}>
+            <ul class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-300 mb-8 list-none p-0">
+              <li class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span>Cotação comparativa em 2 minutos</span>
+              </li>
+              <li class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span>Suporte presencial em sinistros</span>
+              </li>
+              <li class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span>Rua dos Brandões, 231 · Passos</span>
+              </li>
+            </ul>
+          </MotionReveal>
+
           <MotionReveal client:visible delay={0.2}>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="flex flex-col items-center justify-center gap-3">
               <WhatsAppCTA
                 client:load
                 productName="Geral"
-                label="Falar com Paulo ou André"
+                label="Cotar Agora pelo WhatsApp"
                 size="lg"
                 variant="whatsapp"
                 fullWidthMobile={true}
-                className="btn-press shadow-[0_16px_36px_rgba(16,185,129,0.38)] !px-9 !py-4 text-base font-bold"
+                className="btn-press shadow-[0_16px_36px_rgba(16,185,129,0.38)] !px-10 !py-4 text-base font-bold"
               />
+              <span class="text-xs text-slate-400 flex items-center gap-1.5 pt-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Tempo médio de resposta: <strong class="text-slate-200">menos de 3 minutos</strong> · Atendimento 100% humano
+              </span>
             </div>
 
             {/* Apresentação Humana Compacta no Mobile */}
@@ -387,50 +499,50 @@ const homeJsonLd = {
             </div>
           </MotionReveal>
 
-          <!-- Coluna Direita: Lista Minimalista de Fases (lg:col-span-7) -->
+          <!-- Coluna Direita: Lista Semântica Ordenada de Fases para Google Featured Snippets (lg:col-span-7) -->
           <MotionReveal client:visible delay={0.1} className="lg:col-span-7">
-            <div class="divide-y divide-slate-800/80 border-t border-b border-slate-800/80">
+            <ol class="divide-y divide-slate-800/80 border-t border-b border-slate-800/80 list-none p-0 m-0">
               
               {/* Fase 01 */}
-              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
-                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
-                  01
+              <li class="py-8 sm:py-9 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-xs font-mono uppercase tracking-wider text-sky-400 mb-1 block">
+                  Etapa 01 · Análise Estratégica
                 </span>
-                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
-                  Mapeamento de Riscos e Necessidades
+                <h3 class="text-lg font-bold text-white tracking-tight mt-1">
+                  Mapeamento de Riscos e Necessidades no WhatsApp
                 </h3>
-                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-                  Entendemos a fundo a sua rotina, operação rural, frota ou patrimônio familiar via WhatsApp para identificar exposições reais e cortar coberturas inúteis.
+                <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                  Você informa via WhatsApp os dados básicos do seu veículo, imóvel, operação rural ou empresa. Nossos consultores especialistas identificam exatamente os riscos reais da sua rotina e eliminam coberturas desnecessárias que apenas encareceriam a sua apólice.
                 </p>
-              </div>
+              </li>
 
               {/* Fase 02 */}
-              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
-                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
-                  02
+              <li class="py-8 sm:py-9 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-xs font-mono uppercase tracking-wider text-sky-400 mb-1 block">
+                  Etapa 02 · Estudo Multimercado
                 </span>
-                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
-                  Curadoria Multimercado Imparcial
+                <h3 class="text-lg font-bold text-white tracking-tight mt-1">
+                  Curadoria Comparativa Multisseguradoras Imparcial
                 </h3>
-                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-                  Comparamos condições, limites de indenização e franquias nas principais companhias do país, recomendando a alternativa de melhor custo-benefício para o seu perfil.
+                <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                  Consultamos simultaneamente as melhores companhias do país (Porto Seguro, Tokio Marine, Bradesco, Allianz, Mapfre e HDI) e apresentamos uma tabela comparativa clara de preços, valores de franquia e coberturas para você escolher a opção mais vantajosa.
                 </p>
-              </div>
+              </li>
 
               {/* Fase 03 */}
-              <div class="py-8 sm:py-10 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
-                <span class="text-sm text-slate-500 font-medium tracking-normal mb-1 block">
-                  03
+              <li class="py-8 sm:py-9 group hover:bg-slate-900/30 transition-colors duration-300 px-5 -mx-5 rounded-lg">
+                <span class="text-xs font-mono uppercase tracking-wider text-sky-400 mb-1 block">
+                  Etapa 03 · Ativação &amp; Suporte
                 </span>
-                <h3 class="text-lg font-semibold text-white tracking-tight mt-1">
-                  Ativação e Gestão Contínua
+                <h3 class="text-lg font-bold text-white tracking-tight mt-1">
+                  Emissão Ágil e Gestão Contínua de Sinistros
                 </h3>
-                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-                  Formalização ágil sem deslocamentos físicos e suporte direto dos consultores Paulo Martins e André em qualquer eventualidade ou sinistro ao longo de todo o contrato.
+                <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                  A contratação é 100% digital e sem papelada física. Durante todo o ano de vigência, caso ocorra colisão, pane mecânica ou imprevisto patrimonial, você fala diretamente com Paulo Martins ou André para orientação imediata e liberação rápida da indenização.
                 </p>
-              </div>
+              </li>
 
-            </div>
+            </ol>
           </MotionReveal>
 
         </div>
@@ -725,6 +837,87 @@ const homeJsonLd = {
           </div>
         </MotionReveal>
 
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6.1 TABELA COMPARATIVA SEMÂNTICA (AEO Table Snippet + SXO Anti-Objeção)   -->
+    <!-- ========================================================================= -->
+    <section id="comparativo" aria-label="Comparativo de modelo de atendimento" class="py-16 sm:py-24 bg-[#050E1D] border-t border-b border-slate-800/80 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <MotionReveal client:visible delay={0.05}>
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="inline-block text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 border border-sky-400/20 px-3.5 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(56,189,248,0.12)]">
+              TRANSPARÊNCIA E COMPARAÇÃO REAL
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Por que contratar com a <span class="text-sky-400 italic font-serif">JRX Seguros</span>?
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300/85 mt-3 max-w-xl mx-auto">
+              Entenda a diferença prática entre uma consultoria dedicada em Passos - MG e os canais impessoais de bancos ou 0800.
+            </p>
+          </div>
+        </MotionReveal>
+
+        <MotionReveal client:visible delay={0.1}>
+          <div class="overflow-x-auto rounded-2xl border border-sky-400/25 shadow-[0_20px_50px_rgba(2,6,23,0.9)] bg-[#091D3E]/70 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <caption class="sr-only">Comparativo entre JRX Seguros em Passos, Bancos Tradicionais e Centrais 0800 de Seguradoras</caption>
+              <thead>
+                <tr class="border-b border-sky-400/20 bg-[#0B2550]/80 text-white">
+                  <th scope="col" class="py-4 px-5 font-bold">Critério de Atendimento</th>
+                  <th scope="col" class="py-4 px-5 font-bold text-sky-300 bg-sky-950/50 border-x border-sky-400/25">
+                    JRX Seguros (Passos / MG)
+                  </th>
+                  <th scope="col" class="py-4 px-5 font-semibold text-slate-300">Bancos Tradicionais</th>
+                  <th scope="col" class="py-4 px-5 font-semibold text-slate-300">Centrais 0800 de Seguradoras</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <th scope="row" class="py-4 px-5 font-medium text-white">Canal de Contato</th>
+                  <td class="py-4 px-5 font-bold text-emerald-400 bg-sky-950/25 border-x border-sky-400/25">
+                    WhatsApp direto com Paulo Martins ou André
+                  </td>
+                  <td class="py-4 px-5 text-slate-400">Gerente geral ou central terceirizada</td>
+                  <td class="py-4 px-5 text-slate-400">Robô eletrônico e menus numéricos</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <th scope="row" class="py-4 px-5 font-medium text-white">Imparcialidade nas Cotações</th>
+                  <td class="py-4 px-5 font-bold text-emerald-400 bg-sky-950/25 border-x border-sky-400/25">
+                    Compara as 10 maiores seguradoras do Brasil
+                  </td>
+                  <td class="py-4 px-5 text-slate-400">Apenas a seguradora do próprio banco</td>
+                  <td class="py-4 px-5 text-slate-400">Exclusiva de uma única bandeira</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <th scope="row" class="py-4 px-5 font-medium text-white">Apoio em Sinistro ou Acidente</th>
+                  <td class="py-4 px-5 font-bold text-emerald-400 bg-sky-950/25 border-x border-sky-400/25">
+                    Acompanhamento técnico até o pagamento
+                  </td>
+                  <td class="py-4 px-5 text-slate-400">Transfere para o 0800 da seguradora</td>
+                  <td class="py-4 px-5 text-slate-400">Você preenche formulários sozinho no app</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <th scope="row" class="py-4 px-5 font-medium text-white">Sede e Proximidade</th>
+                  <td class="py-4 px-5 font-bold text-emerald-400 bg-sky-950/25 border-x border-sky-400/25">
+                    Escritório físico em Passos - MG (Rua dos Brandões, 231)
+                  </td>
+                  <td class="py-4 px-5 text-slate-400">Agências com filas e burocracia</td>
+                  <td class="py-4 px-5 text-slate-400">Inexistente (100% call center remoto)</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <th scope="row" class="py-4 px-5 font-medium text-white">Custo da Consultoria</th>
+                  <td class="py-4 px-5 font-bold text-emerald-400 bg-sky-950/25 border-x border-sky-400/25">
+                    100% gratuito e sem compromisso
+                  </td>
+                  <td class="py-4 px-5 text-slate-400">Embutido em tarifas e metas da agência</td>
+                  <td class="py-4 px-5 text-slate-400">Preço padrão de tabela sem desconto</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </MotionReveal>
       </div>
     </section>
 

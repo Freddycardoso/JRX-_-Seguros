@@ -8,8 +8,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "clean": "node -e \"['.astro', 'dist', '.next'].forEach(d => fs.existsSync(d) && fs.rmSync(d, { recursive: true, force: true }))\"",
+    "preinstall": "npx only-allow pnpm"
   },
+  "packageManager": "pnpm@12.6.0",
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@tailwindcss/vite": "^4.3.3",

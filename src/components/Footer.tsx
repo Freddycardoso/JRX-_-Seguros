@@ -71,9 +71,10 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Canais Oficiais */}
-          <div className="space-y-3">
+          {/* Canais Oficiais com Tag Semântica <address> */}
+          <address className="space-y-3 not-italic">
             <h4 className="text-xs font-bold uppercase tracking-wider text-sky-400 mb-3.5">
-              ENDEREÇO &amp; CONTATO
+              ENDEREÇO &amp; CONTATO OFICIAL
             </h4>
 
             <div className="flex items-start gap-2.5 text-xs text-slate-300/90">
@@ -81,7 +82,7 @@ export const Footer: React.FC = () => {
               <span>
                 {SITE_CONFIG.address}
                 <br />
-                <span className="text-slate-400 font-mono text-[11px]">CEP {SITE_CONFIG.cep}</span>
+                <span className="text-slate-400 font-mono text-[11px]">CEP {SITE_CONFIG.cep} · Passos, MG</span>
               </span>
             </div>
 
@@ -108,24 +109,26 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 text-xs text-slate-300/80 pt-1">
               <Mail className="w-4 h-4 text-sky-400 shrink-0" aria-hidden="true" />
-              <span>{SITE_CONFIG.email}</span>
+              <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-white transition-colors">{SITE_CONFIG.email}</a>
             </div>
 
             <div className="flex items-start gap-2 text-xs text-slate-300/80">
               <Clock className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" aria-hidden="true" />
               <span>{SITE_CONFIG.operatingHours}</span>
             </div>
-          </div>
+          </address>
         </div>
 
-        {/* Legal Notices */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        {/* Legal Notices com E-E-A-T Regulatório Completo */}
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 border-t border-sky-950/60 mt-4">
           <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-center md:text-left">
             <span>© {new Date().getFullYear()} JRX Seguros - Unidade Passos</span>
             <span>·</span>
-            <span>Passos - Minas Gerais</span>
-            <span>·</span>
             <span>CNPJ: {SITE_CONFIG.cnpj}</span>
+            <span>·</span>
+            <span className="text-sky-300 font-mono">Registro SUSEP: Corretora Habilitada</span>
+            <span>·</span>
+            <span>Passos - Minas Gerais</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400 text-xs">
@@ -133,7 +136,9 @@ export const Footer: React.FC = () => {
             <span>·</span>
             <span className="hover:text-slate-200 cursor-pointer">Termos de Uso</span>
             <span>·</span>
-            <span className="hover:text-slate-200 cursor-pointer">Atendimento Especializado</span>
+            <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="text-sky-400/80 hover:text-sky-300 transition-colors">
+              llms.txt
+            </a>
           </div>
         </div>
       </div>

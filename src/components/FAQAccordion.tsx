@@ -62,9 +62,9 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
                   aria-expanded={isOpen}
                   className="w-full flex items-center justify-between p-4 sm:p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 cursor-pointer select-none"
                 >
-                  <span className="text-sm sm:text-base font-bold text-white pr-4 leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-white pr-4 leading-snug m-0 font-sans">
                     {item.question}
-                  </span>
+                  </h3>
                   <div
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen

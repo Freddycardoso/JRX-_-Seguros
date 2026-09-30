@@ -22,6 +22,7 @@ A **JRX Seguros** é uma assessoria e corretora especializada em consultoria de 
 
 - **Razão Social / Nome Fantasia**: JRX Seguros (JRX Seguros Unidade Passos)
 - **CNPJ**: 48.291.834/0001-90
+- **Habilitação Regulamentar**: Corretora Habilitada e Autorizada SUSEP (Superintendência de Seguros Privados)
 - **Endereço Sede**: Rua dos Brandões, 231, Sala 30 - Passos - MG, CEP 37900-118
 - **Região Primária de Atuação**: Passos - MG, Sudoeste Mineiro e suporte digital para clientes em todo o território nacional (Brasil).
 - **Consultores Responsáveis**:

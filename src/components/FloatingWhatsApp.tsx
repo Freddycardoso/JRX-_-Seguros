@@ -25,10 +25,15 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ currentProdu
       {isOpen && (
         <div className="mb-3 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-4 text-slate-900 animate-in slide-in-from-bottom-5 duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-bold text-slate-800">
-                Consultores Online no WhatsApp
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-bold text-slate-800">
+                  Consultores no WhatsApp
+                </span>
+              </div>
+              <span className="text-[10px] text-emerald-600 font-semibold pl-4">
+                ● Resposta média em &lt; 3 minutos
               </span>
             </div>
             <button
@@ -41,8 +46,8 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ currentProdu
             </button>
           </div>
 
-          <p className="text-xs text-slate-500 my-2.5 leading-relaxed">
-            Olá! Com qual consultor você gostaria de falar sobre o <strong>{productName}</strong> agora?
+          <p className="text-xs text-slate-600 my-2.5 leading-relaxed">
+            Atendimento 100% humano, sem robôs. Escolha com quem deseja falar sobre <strong>{productName}</strong>:
           </p>
 
           <div className="space-y-2">
